@@ -1,0 +1,3 @@
+[submodule "raidea_module"]
+	path = raidea_module
+	url = https://github.com/plat-dev/raidea_module.git
