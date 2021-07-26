@@ -16,7 +16,7 @@ import {
 } from '@nestjs/swagger';
 import { Request, Response } from 'express';
 import { EmailService } from './email.service';
-import * as OrdersDTO from './dto/orders.dto';
+import * as OrdersDTO from '../dto/orders.dto';
 
 @ApiTags('Email Service: 이메일 HTML 전송')
 @ApiBearerAuth()
