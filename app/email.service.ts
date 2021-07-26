@@ -1,10 +1,24 @@
 import { RaideaService } from 'raidea_module/raidea.service';
+import { HttpStatus } from '@nestjs/common';
+import { MapManager } from './util/map.manager';
+import { CalculateManager } from './util/calculate.manager';
+import { PhoneNumberUtil } from 'google-libphonenumber';
+import * as jwtDecode from 'jwt-decode';
+import moment = require('moment');
 
 import * as ModelDto from './dto/model.dto';
+import * as OrdersDTO from './dto/orders.dto';
 import checkParams from 'app/util/check.params';
+import makePaymentMethod from './util/make.paymentMethod';
+
+const phoneUtil = PhoneNumberUtil.getInstance();
 
 export class EmailService {
-  constructor(private radieaService: RaideaService) {}
+  constructor(
+    private raideaService: RaideaService,
+    private mapManager: MapManager,
+    private calculateManager: CalculateManager,
+  ) {}
 
   async getOrderStatement(
     accessToken: string,
